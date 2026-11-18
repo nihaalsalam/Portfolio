@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8fafc;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.08);
+  --accent-emerald: #059669;
+}
+
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #141414;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --accent-emerald: #10b981;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Modern clean scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #606060;
+  }
+}
+
+@layer components {
+  .title-counter {
+    @apply font-mono text-[11px] sm:text-xs font-semibold tracking-[0.25em] text-muted-foreground uppercase inline-block;
+  }
+
+  .title {
+    @apply text-3xl sm:text-5xl md:text-6xl font-black tracking-tighter uppercase leading-none;
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+}
+
+/* Custom glow and glass utilities */
+.glass-panel {
+  background: rgba(18, 18, 18, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-nav {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================
+   LIGHT THEME OVERRIDES (White / Crisp Mode)
+   ========================================= */
+html.light {
+  background-color: #fafafa !important;
+  color: #09090b !important;
+  color-scheme: light;
+}
+
+html.light body {
+  background-color: #fafafa !important;
+  color: #09090b !important;
+}
+
+html.light .bg-background {
+  background-color: #fafafa !important;
+}
+
+html.light .text-foreground {
+  color: #09090b !important;
+}
+
+html.light .text-white {
+  color: #09090b !important;
+}
+
+html.light .text-zinc-100,
+html.light .text-zinc-200,
+html.light .text-zinc-300 {
+  color: #18181b !important;
+}
+
+html.light .text-zinc-400 {
+  color: #52525b !important;
+}
+
+html.light .text-zinc-500 {
+  color: #71717a !important;
+}
+
+html.light .text-muted-foreground {
+  color: #52525b !important;
+}
+
+/* Cards & Surfaces in Light Mode */
+html.light .bg-zinc-950,
+html.light .bg-zinc-950\/70,
+html.light .bg-zinc-950\/80,
+html.light .bg-zinc-950\/85,
+html.light .bg-zinc-950\/90 {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02) !important;
+}
+
+html.light .bg-zinc-900,
+html.light .bg-zinc-900\/30,
+html.light .bg-zinc-900\/40,
+html.light .bg-zinc-900\/50,
+html.light .bg-zinc-900\/60,
+html.light .bg-zinc-900\/70,
+html.light .bg-zinc-900\/80,
+html.light .bg-zinc-900\/90 {
+  background-color: #f4f4f5 !important;
+}
+
+html.light .bg-zinc-800,
+html.light .bg-zinc-800\/80 {
+  background-color: #e4e4e7 !important;
+}
+
+/* Borders in Light Mode */
+html.light .border-white\/5,
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20,
+html.light .border-white\/30,
+html.light .border-white\/40,
+html.light .border-border {
+  border-color: rgba(0, 0, 0, 0.09) !important;
+}
+
+/* Glass Navigation in Light Mode */
+html.light .glass-nav {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Background Grid Pattern in Light Mode */
+html.light .grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px) !important;
+}
+
+/* Inverted buttons in Light Mode */
+html.light .bg-white.text-zinc-950,
+html.light .bg-white.text-black {
+  background-color: #09090b !important;
+  color: #ffffff !important;
+}
+
+html.light .bg-white.text-zinc-950:hover,
+html.light .bg-white.text-black:hover {
+  background-color: #27272a !important;
+}
+
+/* Footer in Light Mode */
+html.light footer {
+  background-color: #f4f4f5 !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
